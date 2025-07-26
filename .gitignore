@@ -1,77 +1,76 @@
-# ComfyUI core files
-*.py
-*.json
-*.yaml
-*.yml
-*.txt
-*.md
-*.ini
-*.sh
-*.bat
-LICENSE
-CODEOWNERS
-CONTRIBUTING.md
-pytest.ini
-
-# ComfyUI directories
-/api_server/
-/app/
-/comfy/
-/comfy_api/
-/comfy_api_nodes/
-/comfy_config/
-/comfy_execution/
-/comfy_extras/
-/tests/
-/tests-unit/
-/script_examples/
-/utils/
-/.ci/
-/.github/
-/alembic_db/
-/web/
-
-# ComfyUI generated/runtime
+# Python
 __pycache__/
 *.py[cod]
-/output/
-/input/
-!/input/example.png
-/models/
-/temp/
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# UV
+uv.lock
+
+# ComfyUI runtime/generated
+input/
+output/
+temp/
+models/
 /custom_nodes/*
 !/custom_nodes/ComfyUI-Manager/
 /custom_nodes/ComfyUI-Manager/*
 !/custom_nodes/ComfyUI-Manager/config.ini
-extra_model_paths.yaml
-/.vs
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.onnx
+*.log
+comfyui.log
+/user/
+web_custom_versions/
+
+# IDEs
 .vscode/
 .idea/
-venv/
-/web/extensions/*
-!/web/extensions/logging.js.example
-!/web/extensions/core/
-/tests-ui/data/object_info.json
-/user/
-*.log
-web_custom_versions/
+*.swp
+*.swo
+*~
 .DS_Store
-openapi.yaml
-filtered-openapi.yaml
+/.vs
 
-# UV/Python
-.venv/
-*.egg-info/
-dist/
-build/
-
-# Keep our custom files
-!.gitignore
-!README-LOCAL.md
-!pyproject.toml
-!run.py
-!run.sh
-!run.bat
+# Environment variables
+.env
+.env.local
+.env.*.local
+extra_model_paths.yaml
 
 # Claude
 .claude/
+
+# Testing
+/tests-ui/data/object_info.json
+
+# API docs
+openapi.yaml
+filtered-openapi.yaml
