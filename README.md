@@ -112,6 +112,10 @@ uv sync --reinstall
 ### Out of Memory Errors
 ComfyUI automatically manages VRAM. For RTX 4080 Super (16GB VRAM), most models should work without issues.
 
+## ComfyUI Documentation
+
+For detailed information about ComfyUI's features, supported models, and advanced usage, see [README-COMFYUI-ORIGINAL.md](README-COMFYUI-ORIGINAL.md).
+
 ## License
 
 This project setup is open source. ComfyUI itself is licensed under GPL-3.0.

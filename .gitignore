@@ -68,9 +68,6 @@ extra_model_paths.yaml
 # Claude
 .claude/
 
-# Documentation
-README-COMFYUI-ORIGINAL.md
-
 # Testing
 /tests-ui/data/object_info.json
 
