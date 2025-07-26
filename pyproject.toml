@@ -1,0 +1,84 @@
+[project]
+name = "comfyui-local"
+version = "0.1.0"
+description = "ComfyUI with UV package manager"
+readme = "README-LOCAL.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # ComfyUI frontend packages
+    "comfyui-frontend-package==1.23.4",
+    "comfyui-workflow-templates==0.1.40",
+    "comfyui-embedded-docs==0.2.4",
+    
+    # PyTorch (versions resolved by UV index)
+    "torch",
+    "torchsde",
+    "torchvision",
+    "torchaudio",
+    
+    # Core dependencies
+    "numpy>=1.25.0",
+    "einops",
+    "transformers>=4.37.2",
+    "tokenizers>=0.13.3",
+    "sentencepiece",
+    "safetensors>=0.4.2",
+    "aiohttp>=3.11.8",
+    "yarl>=1.18.0",
+    "pyyaml",
+    "Pillow",
+    "scipy",
+    "tqdm",
+    "psutil",
+    "alembic",
+    "SQLAlchemy",
+    
+    # Non-essential dependencies
+    "kornia>=0.7.1",
+    "spandrel",
+    "soundfile",
+    "av>=14.2.0",
+    "pydantic~=2.0",
+    "pydantic-settings~=2.0",
+]
+
+[tool.uv]
+# Configure PyTorch sources for CUDA on Linux/Windows, CPU on macOS
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'darwin'" },
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+# PyTorch indexes
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+# ComfyUI's ruff configuration
+[tool.ruff]
+lint.select = [
+  "N805", # invalid-first-argument-name-for-method
+  "S307", # suspicious-eval-usage
+  "S102", # exec
+  "T",    # print-usage
+  "W",
+  # The "F" series in Ruff stands for "Pyflakes" rules, which catch various Python syntax errors and undefined names.
+  # See all rules here: https://docs.astral.sh/ruff/rules/#pyflakes-f
+  "F",
+]
+exclude = ["*.ipynb"]
