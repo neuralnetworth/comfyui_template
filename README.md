@@ -44,6 +44,8 @@ A complete ComfyUI template repository with UV package manager for fast dependen
    # Or directly with Python
    python run.py
    ```
+   
+   > **⚠️ First-Time Startup Note**: The initial startup takes 30-60 seconds as ComfyUI-Manager performs security checks and installs dependencies. Subsequent startups will be much faster.
 
 ## Project Structure
 
